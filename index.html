@@ -4,7 +4,7 @@
     <link rel="icon" type="image/png" href="assets/favicon.png">
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Moses Sutrisno - Portfolio</title>
+    <title>Mos.on.dev</title>
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
@@ -23,17 +23,11 @@
 
     <section class="Hero" id="home">
         <div class="Hero-text">
-            <p class="Greeting">Hello, I'm</p>
+            <p class="Greeting">Meet,</p>
 
-            <h1>Moses Sutrisno</h1>
+            <h1>Moses Sutrisno.</h1>
 
             <h2>Information Systems Student</h2>
-
-            <p class="Description">
-                I am a student at Maranatha Christian University
-                who is interested in technology, programming,
-                and web development.
-            </p>
 
             <div class="Hero-buttons">
                 <a href="#projects" class="Button">My Projects</a>
@@ -48,65 +42,90 @@
 
     <section class="About" id="about">
         <h2>About Me</h2>
-        <p>
-            I am an Information Systems student who is learning
-            programming, database management, and web development.
-            I enjoy learning new technologies and building fun projects that brings me up to the next level.
-        </p>
+        <div class="About-layout">
+            <div class="About-description">
+                <p>
+                    I am an Information Systems student on <strong style="color: #245B45;">3rd Semester</strong> who is learning
+                    programming, database management, and web development.
+                    I enjoy learning new technologies and building fun projects that bring me up to the next level.
+                </p>
+                <p>
+                    I am currently not working anywhere, but I am open to opportunities
+                    to collaborate on projects or contribute to open-source initiatives.
+                </p>
+            </div>
+
+            <div class="About-photo">
+                <img src="assets/Ted.jpg" alt="Portrait of Moses Sutrisno">
+            </div>
+
+            <div class="About-card-space" aria-hidden="true"></div>
+        </div>
     </section>
 
     <section class="Skills" id="skills">
         <h2>My Skills</h2>
 
+        <h3><strong style="color: #c1c1c1;">TECH</strong> SKILLS </h3>
+
         <div class="Skills-list">
             <div class="Skill-card">
+                <h3 class="Skill-category">// Frontend</h3>
+                <hr class="Skill-divider">
                 <div class="Skill-info">
 
                     <div class="Skill-description">
                         <h3>HTML / CSS / JavaScript</h3>
+                        <p class="Skill-rank">ADVANCED</p>
+                    </div>
+                </div>
+
+                <div class="Skill-progress advanced"
+                    role="img"
+                    aria-label="HTML, CSS, dan JavaScript: Advanced">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </div>
+            </div>
+
+            <div class="Skill-card">
+                <h3 class="Skill-category">// Backend</h3>
+                <hr class="Skill-divider">
+
+                <div class="Backend-skill">
+                    <div class="Skill-description">
+                        <h3>Java</h3>
+                        <p class="Skill-rank">INTERMEDIATE</p>
+                        <div class="Skill-progress intermediate" role="img" aria-label="Java: Intermediate">
+                            <span></span><span></span><span></span>
+                        </div>
+                    </div>
+
+                    <div class="Skill-description">
+                        <h3>Python</h3>
+                        <p class="Skill-rank">INTERMEDIATE</p>
+                        <div class="Skill-progress intermediate" role="img" aria-label="Python: Intermediate">
+                            <span></span><span></span><span></span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="Skill-card">
+                <h3 class="Skill-category">// Data, API, Workflow</h3>
+                <hr class="Skill-divider">
+
+                <div class="Skill-info">
+                    <div class="Skill-description">
+                        <h3>MySQL</h3>
                         <p class="Skill-rank">INTERMEDIATE</p>
                     </div>
                 </div>
 
                 <div class="Skill-progress intermediate"
-                    role="img"
-                    aria-label="HTML, CSS, dan JavaScript: Intermediate">
-                    <span></span>
-                    <span></span>
-                    <span></span>
-                </div>
-            </div>
-
-            <div class="Skill-card">
-                <div class="Skill-info">
-
-                    <div class="Skill-description">
-                        <h3>Java</h3>
-                        <p class="Skill-rank">BEGINNER</p>
-                    </div>
-                </div>
-
-                <div class="Skill-progress beginner"
-                    role="img"
-                    aria-label="Java: Beginner">
-                    <span></span>
-                    <span></span>
-                    <span></span>
-                </div>
-            </div>
-
-            <div class="Skill-card">
-                <div class="Skill-info">
-
-                    <div class="Skill-description">
-                        <h3>Python</h3>
-                        <p class="Skill-rank">BEGINNER</p>
-                    </div>
-                </div>
-
-                <div class="Skill-progress beginner"
-                    role="img"
-                    aria-label="Python: Beginner">
+                     role="img"
+                     aria-label="MySQL: Intermediate">
                     <span></span>
                     <span></span>
                     <span></span>
@@ -119,20 +138,20 @@
         <h2>My Projects</h2>
 
         <div class="Projects-list">
-            <div class="Project-card">
-                <h3>Portfolio Website</h3>
-                <p>A personal portfolio website built using HTML, CSS and Javascript.</p>
-            </div>
-
-            <div class="Project-card">
-                <h3>Java Programming</h3>
-                <p>A collection of Java programming exercises and projects.</p>
-            </div>
-
-            <div class="Project-card">
-                <h3>Database Project</h3>
-                <p>A database project involving SQL and data management.</p>
-            </div>
+            <a class="Project-card" href="https://github.com/Moses-M-Dev/Laundry-Project" download>
+                <div class="Project-image">
+                    <img src="assets/laundry.png" alt="Project image">
+                    <span>Project image</span>
+                </div>
+                <div class="Project-content">
+                    <h3>Laundry Project</h3>
+                    <p>Ini merupakan proyek Java dan SQL yang dibuat bersama dengan teman saya, Memakai NetBeans dan MySQL </p>
+                    <div class="Project-tags">
+                        <span>Java</span><span>MySQL</span>
+                    </div>
+                    <span class="Project-action">↧ &nbsp; Download project</span>
+                </div>
+            </a>
         </div>
     </section>
 
@@ -148,7 +167,7 @@
     </section>
 
     <footer>
-        <p>© 2026 Moses Sutrisno. All rights reserved.</p>
+        <p>&copy; 2026 Moses Sutrisno. All rights reserved.</p>
     </footer>
 
 </body>
