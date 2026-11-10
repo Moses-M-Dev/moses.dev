@@ -8,9 +8,31 @@
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
+    <div class="Preloader" id="preloader" role="status">
+        <div class="Preloader-content">
+            <div class="Preloader-brand">Mos<span>.on.dev</span></div>
+
+            <div class="Preloader-track"
+                 role="progressbar"
+                 aria-label="Loading website"
+                 aria-valuemin="0"
+                 aria-valuemax="100"
+                 aria-valuenow="0">
+                <div class="Preloader-bar" id="loading-progress"></div>
+            </div>
+
+            <div class="Preloader-status">
+                <span>LOADING ASSETS</span>
+                <span id="loading-percent">0%</span>
+            </div>
+        </div>
+    </div>
 
     <header class="Navbar">
-        <a href="#" class="Logo">Moses Sutrisno<span>.</span></a>
+        <a href="#home" class="Logo" aria-label="Mos.on.dev - Home">
+            <img class="Logo-avatar" src="assets/ProfPic.jpg.jpeg" alt="">
+            <span class="Logo-name">Mos<span class="Logo-accent">.on.dev</span></span>
+        </a>
 
         <nav>
             <a href="#home">Home</a>
@@ -23,11 +45,21 @@
 
     <section class="Hero" id="home">
         <div class="Hero-text">
-            <p class="Greeting">Meet,</p>
+            <div class="Hero-meta">
+                <p class="Availability">
+                    <span class="Availability-dot" aria-hidden="true"></span>
+                    Available for Part-time &amp; Freelance
+                </p>
+                <p class="Hero-location">
+                    <span class="Hero-meta-divider" aria-hidden="true"></span>
+                    Bandung, Indonesia
+                </p>
+            </div>
 
-            <h1>Moses Sutrisno.</h1>
-
-            <h2>Information Systems Student</h2>
+            <p class="Greeting">MEET,</p>
+            <h1>MOSES</h1>
+            <h1>SUTRISNO.</h1>
+            <h2>> Information System Student</h2>
 
             <div class="Hero-buttons">
                 <a href="#projects" class="Button">My Projects</a>
@@ -42,24 +74,57 @@
 
     <section class="About" id="about">
         <h2>About Me</h2>
-        <div class="About-layout">
-            <div class="About-description">
-                <p>
-                    I am an Information Systems student on <strong style="color: #245B45;">3rd Semester</strong> who is learning
-                    programming, database management, and web development.
-                    I enjoy learning new technologies and building fun projects that bring me up to the next level.
-                </p>
-                <p>
-                    I am currently not working anywhere, but I am open to opportunities
-                    to collaborate on projects or contribute to open-source initiatives.
-                </p>
+        <div class="About-tabs" role="tablist" aria-label="About Me">
+            <button class="About-tab" type="button" role="tab"
+                    aria-selected="true" aria-controls="panel-about">
+                About
+            </button>
+            <button class="About-tab" type="button" role="tab"
+                    aria-selected="false" aria-controls="panel-certificates">
+                Certificates
+            </button>
+            <button class="About-tab" type="button" role="tab"
+                    aria-selected="false" aria-controls="panel-achievements">
+                Achievements
+            </button>
+            <button class="About-tab" type="button" role="tab"
+                    aria-selected="false" aria-controls="panel-organization">
+                Organization
+            </button>
+        </div>
+
+        <div class="About-panels">
+            <div class="About-panel" id="panel-about" role="tabpanel">
+                <div class="About-layout">
+                    <div class="About-description">
+                        <p>
+                            I am an Information Systems student on <strong style="color: #245B45;">3rd Semester</strong> who is learning
+                            programming, database management, and web development.
+                            I enjoy learning new technologies and building fun projects that bring me up to the next level.
+                        </p>
+                        <p>
+                            I am currently not working anywhere, but I am open to opportunities
+                            to collaborate on projects or contribute to open-source initiatives.
+                        </p>
+                    </div>
+
+                    <div class="About-photo">
+                        <img src="assets/Ted.png" alt="Portrait of Moses Sutrisno">
+                    </div>
+
+                    <div class="About-card-space" aria-hidden="true"></div>
+                </div>
             </div>
 
-            <div class="About-photo">
-                <img src="assets/Ted.jpg" alt="Portrait of Moses Sutrisno">
+            <div class="About-panel" id="panel-certificates" role="tabpanel" hidden>
+                Konten sertifikat diletakkan di sini.
             </div>
-
-            <div class="About-card-space" aria-hidden="true"></div>
+            <div class="About-panel" id="panel-achievements" role="tabpanel" hidden>
+                Konten pencapaian diletakkan di sini.
+            </div>
+            <div class="About-panel" id="panel-organization" role="tabpanel" hidden>
+                Konten organisasi diletakkan di sini.
+            </div>
         </div>
     </section>
 
@@ -132,6 +197,22 @@
                 </div>
             </div>
         </div>
+        <div class="Language-section">
+        <h3 class="Language-heading">LANGUAGES</h3>
+
+        <div class="Language-list">
+            <div class="Language-card">
+                <span class="Language-flag" aria-hidden="true"><img src="assets/indonesian-flag.png" alt="Indonesian flag"></span>
+                <p>Bahasa Indonesia</p>
+            </div>
+
+            <div class="Language-card">
+                <span class="Language-flag" aria-hidden="true"><img src="assets/english-flag.png" alt="English flag"></span>
+                <p>English</p>
+            </div>
+        </div>
+    </div>
+
     </section>
 
     <section class="Projects" id="projects">
@@ -170,5 +251,6 @@
         <p>&copy; 2026 Moses Sutrisno. All rights reserved.</p>
     </footer>
 
+    <script src="script.js"></script>
 </body>
 </html>
