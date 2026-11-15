@@ -68,12 +68,12 @@
         </div>
 
         <div class="Hero-image">
-            <img src="assets/ProfPic.jpg.jpeg" alt="Portfolio placeholder">
+            <img src="assets/ProfPic.jpg.jpeg" alt="Portrait of Moses Sutrisno">
         </div>
     </section>
 
     <section class="About" id="about">
-        <h2>About Me</h2>
+        <h2>ABOUT ME</h2>
         <div class="About-tabs" role="tablist" aria-label="About Me">
             <button class="About-tab" type="button" role="tab"
                     aria-selected="true" aria-controls="panel-about">
@@ -84,8 +84,8 @@
                 Certificates
             </button>
             <button class="About-tab" type="button" role="tab"
-                    aria-selected="false" aria-controls="panel-achievements">
-                Achievements
+                    aria-selected="false" aria-controls="panel-Education">
+                Education
             </button>
             <button class="About-tab" type="button" role="tab"
                     aria-selected="false" aria-controls="panel-organization">
@@ -108,8 +108,10 @@
                         </p>
                     </div>
 
-                    <div class="About-photo">
-                        <img src="assets/Ted.png" alt="Portrait of Moses Sutrisno">
+                    <div class="About-photo" tabindex="0" role="img"
+                         aria-label="Foto di About Me. Arahkan pointer atau fokuskan untuk melihat Ted.">
+                        <img class="About-photo-main" src="assets/Me.png" alt="">
+                        <img class="About-photo-ted" src="assets/Ted.png" alt="" aria-hidden="true">
                     </div>
 
                     <div class="About-card-space" aria-hidden="true"></div>
@@ -117,19 +119,103 @@
             </div>
 
             <div class="About-panel" id="panel-certificates" role="tabpanel" hidden>
-                Konten sertifikat diletakkan di sini.
+                <section class="Certificate-group" aria-labelledby="hackerrank-certificates">
+                    <h3 class="Certificate-heading" id="hackerrank-certificates">// Hackerrank</h3>
+                    <div class="Certificate-list">
+                        <article class="Certificate-card">
+                            <button class="Certificate-preview" type="button" aria-label="Perbesar sertifikat HackerRank">
+                                <span><img src="assets/Javabasic.png" alt="Nama sertifikat"></span>
+                            </button>
+                            <div class="Certificate-details">
+                                <h4>Java Basic</h4>
+                                <div class="Certificate-meta">
+                                    <span class="Certificate-date">25 April 2026</span>
+                                    <span class="Certificate-verified"><span aria-hidden="true">&#10003;</span> Verified</span>
+                                </div>
+                            </div>
+                        </article>
+                    <article class="Certificate-card">
+                            <button class="Certificate-preview" type="button" aria-label="Perbesar sertifikat HackerRank">
+                                <span><img src="assets/Pythonbasic.png" alt="Nama sertifikat"></span>
+                            </button>
+                            <div class="Certificate-details">
+                                <h4>Python Basic</h4>
+                                <div class="Certificate-meta">
+                                    <span class="Certificate-date">25 April 2026</span>
+                                    <span class="Certificate-verified"><span aria-hidden="true">&#10003;</span> Verified</span>
+                                </div>
+                            </div>
+                        </article>
+                    </div>
+                </section>
+
+                <section class="Certificate-group" aria-labelledby="coursera-certificates">
+                    <h3 class="Certificate-heading" id="coursera-certificates">// Coursera</h3>
+                    <div class="Certificate-list">
+                        <!-- Duplikat .Certificate-card untuk menambah sertifikat Coursera. -->
+                        <article class="Certificate-card">
+                            <button class="Certificate-preview" type="button" aria-label="Perbesar sertifikat Coursera">
+                                <!-- Ganti placeholder dengan: <img src="assets/certificates/coursera.jpg" alt="Nama sertifikat"> -->
+                                <span>Certificate image</span>
+                            </button>
+                            <div class="Certificate-details">
+                                <h4>Nama Sertifikat</h4>
+                                <div class="Certificate-meta">
+                                    <span class="Certificate-date">Mon YYYY</span>
+                                    <span class="Certificate-verified"><span aria-hidden="true">&#10003;</span> Verified</span>
+                                </div>
+                            </div>
+                        </article>
+                    </div>
+                </section>
+                <section class="Certificate-group" aria-labelledby="other-certificates">
+                    <h3 class="Certificate-heading" id="other-certificates">// Other</h3>
+                    <div class="Certificate-list">
+                        <!-- Duplikat .Certificate-card untuk menambah sertifikat lainnya. -->
+                        <article class="Certificate-card">
+                            <button class="Certificate-preview" type="button" aria-label="Perbesar sertifikat">
+                                <span><img src="assets/PMR.png" alt="Nama sertifikat"></span>
+                            </button>
+                            <div class="Certificate-details">
+                                <h4>Palang Merah Remaja</h4>
+                                <div class="Certificate-meta">
+                                    <span class="Certificate-date">2023-2024</span>
+                                    <span class="Certificate-verified"><span aria-hidden="true">&#10003;</span> Verified</span>
+                                </div>
+                            </div>
+                        </article>
+                    </div>
+                </section>
             </div>
-            <div class="About-panel" id="panel-achievements" role="tabpanel" hidden>
-                Konten pencapaian diletakkan di sini.
+            <div class="About-panel" id="panel-Education" role="tabpanel" hidden>
+                <div class="Education-list">
+                    <article class="Education-card">
+                        <button class="Education-preview" type="button" aria-label="Perbesar foto education">
+                            <span>Education photo</span>
+                        </button>
+                    </article>
+                </div>
             </div>
             <div class="About-panel" id="panel-organization" role="tabpanel" hidden>
-                Konten organisasi diletakkan di sini.
+                <div class="Organization-list">
+                    <!-- Duplikat .Organization-card untuk menambahkan organisasi lain. -->
+                    <article class="Project-card Organization-card">
+                        <div class="Project-image">
+                            <span><img src="assets/PMR.png" alt="Foto Nama Organisasi"></span>
+                        </div>
+                        <div class="Project-content">
+                            <h3>Palang Merah Remaja (PMR)</h3>
+                            <h4>Service and Community Contribution Division</h4>
+                            <p>I was once involved in the PMR (Indonesian Red Cross Youth) organization, serving in the 'Service and Community Contribution' division, where I assisted in creating posters.</p>
+                        </div>
+                    </article>
+                </div>
             </div>
         </div>
     </section>
 
     <section class="Skills" id="skills">
-        <h2>My Skills</h2>
+        <h2>MY SKILLS</h2>
 
         <h3><strong style="color: #c1c1c1;">TECH</strong> SKILLS </h3>
 
@@ -216,7 +302,7 @@
     </section>
 
     <section class="Projects" id="projects">
-        <h2>My Projects</h2>
+        <h2>PROJECTS</h2>
 
         <div class="Projects-list">
             <a class="Project-card" href="https://github.com/Moses-M-Dev/Laundry-Project" download>
@@ -237,7 +323,7 @@
     </section>
 
     <section class="Contact" id="contact">
-        <h2>Contact Me</h2>
+        <h2>CONTACT</h2>
         <p>Feel free to connect with me through my social media.</p>
 
         <a href="https://www.linkedin.com/in/moses-sutrisno-7bbb36266/" target="_blank">
@@ -250,6 +336,21 @@
     <footer>
         <p>&copy; 2026 Moses Sutrisno. All rights reserved.</p>
     </footer>
+
+    <dialog class="Certificate-modal" id="certificate-modal" aria-labelledby="certificate-modal-title">
+        <button class="Certificate-modal-close" type="button" aria-label="Tutup gambar sertifikat">&times;</button>
+        <img class="Certificate-modal-image" id="certificate-modal-image" alt="">
+        <div class="Certificate-modal-caption">
+            <p class="Certificate-modal-platform" id="certificate-modal-platform"></p>
+            <h3 id="certificate-modal-title"></h3>
+            <p class="Certificate-modal-date" id="certificate-modal-date"></p>
+        </div>
+    </dialog>
+
+    <dialog class="Certificate-modal Achievement-modal" id="achievement-modal" aria-label="Foto achievement diperbesar">
+        <button class="Certificate-modal-close" type="button" aria-label="Tutup foto achievement">&times;</button>
+        <img class="Certificate-modal-image" id="achievement-modal-image" alt="">
+    </dialog>
 
     <script src="script.js"></script>
 </body>

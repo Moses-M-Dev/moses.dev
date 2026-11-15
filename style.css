@@ -34,7 +34,7 @@
 }
 
 .Preloader-brand span {
-    color: #D98A23;
+    color: #2F7890;
 }
 
 .Preloader-track {
@@ -47,7 +47,7 @@
 .Preloader-bar {
     width: 50%;
     height: 100%;
-    background: linear-gradient(90deg, #D98A23, #44B87A);
+    background: linear-gradient(90deg, #2F7890, #44B87A);
     transition: width 0.12s linear;
 }
 
@@ -74,6 +74,13 @@
 
 html {
     scroll-behavior: smooth;
+    scroll-padding-top: 90px;
+}
+
+@media (max-width: 768px) {
+    html {
+        scroll-padding-top: 150px;
+    }
 }
 
 body {
@@ -90,6 +97,48 @@ body {
     padding: 12px 20px;
     background-color: transparent;
     border-bottom: 0;
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    transition: none;
+    background-color: transparent;
+    backdrop-filter: none;
+
+}
+
+.Navbar nav {
+    margin-top: 15px;
+    grid-column: 2;
+    justify-self: center;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 0;
+    width: min(100%, 660px);
+    padding: 7px 10px;
+    border: 1px solid rgba(255, 255, 255, 0.9);
+    border-radius: 999px;
+    background-color: rgba(47, 120, 144, 0.58);
+    box-shadow: 0 8px 24px rgba(41, 45, 42, 0.06);
+    backdrop-filter: blur(6px);
+}
+
+.Navbar nav a {
+    padding: 10px 14px;
+    color: #F4F0E6;
+    font-size: 10px;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    white-space: nowrap;
+    text-decoration: none;
+    transition: color 0.3s ease, background-color 0.3s ease, transform 0.3s ease;
+    border-radius: 999px;
+}
+
+.Navbar nav a:hover {
+    color: #7cdeff;
+    background-color: rgba(225, 255, 225, 0.1);
+    transform: translateY(-2px);
 }
 
 .Logo {
@@ -108,47 +157,13 @@ body {
     width: 36px;
     height: 36px;
     padding: 2px;
-    border: 2px solid #3e7e65;
+    border: 2px solid #2F7890;
     border-radius: 50%;
     object-fit: cover;
 }
 
 .Logo-accent {
-    color: #3e7e65;
-}
-
-.Navbar nav {
-    margin-top: 15px;
-    grid-column: 2;
-    justify-self: center;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    gap: 0px;
-    width: min(100%, 660px);
-    padding: 7px 10px;
-    border: 1px solid rgba(255, 255, 255, 0.9);
-    border-radius: 999px;
-    background-color: rgba(62, 126, 101, 0.58);
-    box-shadow: 0 8px 24px rgba(41, 45, 42, 0.06);
-}
-
-.Navbar nav a {
-    padding: 10px 14px;
-    color: #F4F0E6;
-    font-size: 10px;
-    letter-spacing: 3px;
-    text-transform: uppercase;
-    white-space: nowrap;
-    text-decoration: none;
-    transition: color 0.3s ease, background-color 0.3s ease;
-    border-radius: 999px;
-}
-
-.Navbar nav a:hover {
-    color: #a3e635;
-    background-color: rgba(225, 255, 225, 0.1);
-    transform: translateY(-2px);
+    color: #2F7890;
 }
 
 .Hero {
@@ -181,7 +196,7 @@ body {
     padding: 8px 14px;
     border: 1px solid rgba(217, 164, 65, 0.5);
     border-radius: 999px;
-    color: #3e7e65;
+    color: #2F7890;
     font-size: 12px;
     letter-spacing: 1px;
 }
@@ -208,7 +223,7 @@ body {
 .Hero-meta-divider {
     width: 28px;
     height: 1px;
-    background-color: #3e7e65;
+    background-color: #2F7890;
 }
 
 .Hero-text h1 {
@@ -245,7 +260,7 @@ body {
 .Button {
     display: inline-block;
     padding: 12px 25px;
-    background-color: #D9A441;
+    background-color: #2F7890;
     color: #F4F0E6;
     text-decoration: none;
     font-weight: bold;
@@ -269,7 +284,6 @@ body {
     object-fit: cover;
     border-radius: 20px;
 }
-
 .About,
 .Skills,
 .Projects {
@@ -278,6 +292,7 @@ body {
     padding: 80px 8%;
     text-align: left;
     border-top: 1px solid #262626;
+    
 }
 
 .Contact {
@@ -286,6 +301,7 @@ body {
     padding: 80px 8%;
     text-align: center;
     border-top: 1px solid #262626;
+    
 }
 
 .About h2,
@@ -294,7 +310,7 @@ body {
 .Contact h2 {
     color: #D9A441;
     font-size: 36px;
-    margin-bottom: 25px;
+    margin-bottom: 50px;
     text-align: center;
 }
 
@@ -329,36 +345,55 @@ body {
 }
 
 .About-photo {
-    display: flex;
-    justify-content: center;
-}
-
-.About-photo img {
-    display: block;
-    width: 100%;
-    max-width: 300px;
-    aspect-ratio: 1;
-    object-fit: cover;
+    position: relative;
+    width: 300px;
+    height: 300px;
+    margin: 0 auto;
+    overflow: hidden;
     border-radius: 16px;
 }
 
-.About-card-space {
-    min-height: 260px;
+.About-photo img {
+    position: absolute;
+    inset: 0;
+    display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: inherit;
 }
 
+.About-photo-main,
+.About-photo-ted {
+    transition: opacity 0.35s ease;
+}
+
+.About-photo-ted {
+    opacity: 0;
+}
+
+.About-photo:hover .About-photo-main,
+.About-photo:focus-visible .About-photo-main {
+    opacity: 0;
+}
+
+.About-photo:hover .About-photo-ted,
+.About-photo:focus-visible .About-photo-ted {
+    opacity: 1;
+}
 .About-tabs {
     display: grid;
     grid-template-columns: repeat(4, minmax(0, 1fr));
     gap: 3px;
     padding: 6px;
-    border: 1px solid #3e7e65;
+    border: 1px solid #2F7890;
     border-radius: 18px;
     background-color: #F4F0E6;
 }
 
 .About-tab:hover {
     background-color: rgba(62, 126, 101, 0.2);
-    color: #3e7e65;
+    color: #2F7890;
     transform: translateY(-2px);
 }
 
@@ -368,14 +403,14 @@ body {
     border: 0;
     border-radius: 12px;
     background: transparent;
-    color: #D9A441;
+    color: #A3B18A;
     font: inherit;
     font-weight: 700;
     cursor: pointer;
 }
 
 .About-tab[aria-selected="true"] {
-    background-color: #3e7e65;
+    background-color: #2F7890;
     color: #ffffff;
 }
 
@@ -561,7 +596,8 @@ body {
     margin-top: 30px;
 }
 
-.Projects-list {
+.Projects-list,
+.Organization-list {
     display: flex;
     justify-content: center;
     flex-wrap: wrap;
@@ -599,7 +635,7 @@ body {
 
 .Project-card:hover,
 .Project-card:focus-visible {
-    border-color: #D9A441;
+    border-color: #ffebb9;
     box-shadow: 0 14px 32px rgba(41, 45, 42, 0.15);
     transform: translateY(-5px);
     outline: none;
@@ -634,6 +670,18 @@ body {
     text-decoration: underline;
     text-decoration-color: #D9A441;
     text-underline-offset: 5px;
+}
+
+.Organization-card h4 {
+    margin: 0;
+    color: #2F7890;
+    font-size: 15px;
+    font-weight: 600;
+    line-height: 1.5;
+}
+
+.Organization-card p {
+    margin-top: 12px;
 }
 
 .Project-card p {
@@ -679,7 +727,7 @@ body {
 }
 
 footer {
-    background-color: #3e7e65;
+    background-color: #2F7890;
     text-align: center;
     padding: 25px;
     border-top: 1px solid #262626;
@@ -731,6 +779,12 @@ footer {
         height: 220px;
     }
 
+    .About-photo {
+        width: min(300px, 100%);
+        height: auto;
+        aspect-ratio: 1;
+    }
+
     .Hero h2 {
         font-size: 21px;
     }
@@ -742,4 +796,279 @@ footer {
         padding: 60px 6%;
     }
 
+}
+
+
+/* Certificates: satu baris horizontal, bisa digeser saat kartu bertambah */
+.Certificate-list {
+    display: grid;
+    grid-auto-flow: column;
+    grid-auto-columns: minmax(250px, 300px);
+    gap: 18px;
+    overflow-x: auto;
+    padding: 4px 2px 14px;
+    scroll-snap-type: x mandatory;
+    scrollbar-color: #2F7890 #e5e0d4;
+    scrollbar-width: thin;
+}
+
+.Certificate-card {
+    min-width: 0;
+    overflow: hidden;
+    border: 1px solid rgba(41, 45, 42, 0.12);
+    border-radius: 18px;
+    background: #F8F6F0;
+    box-shadow: 0 5px 16px rgba(41, 45, 42, 0.08);
+    scroll-snap-align: start;
+}
+
+.Certificate-image {
+    height: 220px;
+    display: grid;
+    place-items: center;
+    overflow: hidden;
+    background: linear-gradient(135deg, #e8e4d9, #d6e5df);
+    color: #2F7890;
+    font-size: 14px;
+}
+
+.Certificate-image img {
+    display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.Certificate-details {
+    padding: 15px 17px;
+    border-top: 1px solid rgba(41, 45, 42, 0.12);
+}
+
+.Certificate-details h3 {
+    margin: 0 0 8px;
+    color: #292D2A;
+    font-size: 16px;
+}
+
+.Certificate-meta {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 10px;
+    color: #8b887e;
+    font-size: 12px;
+}
+
+.Certificate-verified {
+    display: inline-flex;
+    align-items: center;
+    gap: 5px;
+    color: #2F7890;
+    font-size: 11px;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+}
+
+.Certificate-verified span {
+    display: inline-grid;
+    width: 17px;
+    height: 17px;
+    place-items: center;
+    border-radius: 50%;
+    background: #2F7890;
+    color: #fff;
+    font-weight: 700;
+}
+
+@media (max-width: 600px) {
+    .Certificate-list {
+        grid-auto-columns: minmax(230px, 85%);
+    }
+}
+
+
+/* Certificate provider groups and image preview */
+.Certificate-group + .Certificate-group {
+    margin-top: 30px;
+}
+
+.Certificate-heading {
+    margin: 0 0 14px;
+    color: #292D2A;
+    font-size: 20px;
+    text-align: left;
+}
+
+.Certificate-preview {
+    display: grid;
+    width: 100%;
+    height: 220px;
+    place-items: center;
+    overflow: hidden;
+    padding: 0;
+    border: 0;
+    background: linear-gradient(135deg, #e8e4d9, #d6e5df);
+    color: #2F7890;
+    font: inherit;
+    cursor: zoom-in;
+}
+
+.Certificate-preview img {
+    display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.25s ease;
+}
+
+.Certificate-preview:hover img {
+    transform: scale(1.035);
+}
+
+.Certificate-details h4 {
+    margin: 0 0 8px;
+    color: #292D2A;
+    font-size: 16px;
+}
+
+.Certificate-modal {
+    position: fixed;
+    width: min(760px, calc(100vw - 32px));
+    max-width: none;
+    max-height: min(90vh, 900px);
+    margin: auto;
+    padding: 32px;
+    overflow: auto;
+    border: 1px solid rgba(41, 45, 42, 0.12);
+    border-radius: 22px;
+    background: #F8F6F0;
+    color: #292D2A;
+    box-shadow: 0 24px 80px rgba(0, 0, 0, 0.3);
+}
+
+.Certificate-modal::backdrop {
+    background: rgba(24, 27, 25, 0.68);
+    backdrop-filter: blur(7px);
+}
+
+.Certificate-modal-close {
+    position: sticky;
+    top: 0;
+    z-index: 1;
+    display: block;
+    width: 40px;
+    height: 40px;
+    margin: -16px -16px 12px auto;
+    border: 1px solid rgba(41, 45, 42, 0.12);
+    border-radius: 50%;
+    background: #eeeae0;
+    color: #292D2A;
+    font-size: 24px;
+    line-height: 1;
+    cursor: pointer;
+}
+
+.Certificate-modal-image {
+    display: block;
+    width: 100%;
+    max-height: 62vh;
+    object-fit: contain;
+    border: 1px solid rgba(41, 45, 42, 0.12);
+    border-radius: 12px;
+    background: #fff;
+}
+
+.Certificate-modal-platform {
+    margin: 20px 0 6px;
+    color: #2F7890;
+    font-size: 12px;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+}
+
+.Certificate-modal-caption h3 {
+    margin: 0;
+    color: #292D2A;
+    font-size: clamp(22px, 4vw, 34px);
+}
+
+.Certificate-modal-date {
+    margin-top: 10px;
+    color: #77786d;
+}
+
+@media (max-width: 600px) {
+    .Certificate-modal {
+        padding: 20px;
+    }
+
+    .Certificate-modal-close {
+        margin: -8px -8px 10px auto;
+    }
+}
+
+
+/* Education photo gallery: horizontal row with image-only preview */
+.Education-list {
+    display: grid;
+    grid-auto-flow: column;
+    grid-auto-columns: minmax(250px, 300px);
+    gap: 18px;
+    overflow-x: auto;
+    padding: 4px 2px 14px;
+    scroll-snap-type: x mandatory;
+    scrollbar-color: #2F7890 #e5e0d4;
+    scrollbar-width: thin;
+}
+
+.Education-card {
+    min-width: 0;
+    overflow: hidden;
+    border: 1px solid rgba(41, 45, 42, 0.12);
+    border-radius: 18px;
+    background: #F8F6F0;
+    box-shadow: 0 5px 16px rgba(41, 45, 42, 0.08);
+    scroll-snap-align: start;
+}
+
+.Education-card {
+    min-width: 0;
+    overflow: hidden;
+    border: 1px solid rgba(41, 45, 42, 0.12);
+    border-radius: 18px;
+    background: #F8F6F0;
+    box-shadow: 0 5px 16px rgba(41, 45, 42, 0.08);
+    scroll-snap-align: start;
+}
+
+.Education-preview {
+    display: grid;
+    width: 100%;
+    height: 220px;
+    place-items: center;
+    overflow: hidden;
+    padding: 0;
+    border: 0;
+    background: linear-gradient(135deg, #e8e4d9, #d6e5df);
+    color: #2F7890;
+    font: inherit;
+    cursor: zoom-in;
+}
+
+.Education-preview img {
+    display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.25s ease;
+}
+
+.Education-preview:hover img {
+    transform: scale(1.035);
+}
+
+@media (max-width: 600px) {
+    .Education-list {
+        grid-auto-columns: minmax(230px, 85%);
+    }
 }
