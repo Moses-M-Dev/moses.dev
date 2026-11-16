@@ -13,7 +13,7 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    background-color: #F4F0E6;
+    background-color: #F7EFE5;
     color: #292D2A;
     opacity: 1;
     visibility: visible;
@@ -34,7 +34,7 @@
 }
 
 .Preloader-brand span {
-    color: #2F7890;
+    color: #86D1C4;
 }
 
 .Preloader-track {
@@ -47,7 +47,7 @@
 .Preloader-bar {
     width: 50%;
     height: 100%;
-    background: linear-gradient(90deg, #2F7890, #44B87A);
+    background: linear-gradient(90deg, #86D1C4, #44B87A);
     transition: width 0.12s linear;
 }
 
@@ -85,8 +85,8 @@ html {
 
 body {
     font-family: Arial, sans-serif;
-    background-color: #F4F0E6;
-    color: #ffffff;
+    background-color: #F7EFE5 ;
+    color: #F7EFE5 ;
     line-height: 1.6;
 }
 
@@ -118,7 +118,7 @@ body {
     padding: 7px 10px;
     border: 1px solid rgba(255, 255, 255, 0.9);
     border-radius: 999px;
-    background-color: rgba(47, 120, 144, 0.58);
+    background-color: rgba(134, 209, 196, 0.58);
     box-shadow: 0 8px 24px rgba(41, 45, 42, 0.06);
     backdrop-filter: blur(6px);
 }
@@ -136,8 +136,8 @@ body {
 }
 
 .Navbar nav a:hover {
-    color: #7cdeff;
-    background-color: rgba(225, 255, 225, 0.1);
+    color: #1f6259;
+    background-color: rgba(31, 98, 89, 0.1);
     transform: translateY(-2px);
 }
 
@@ -157,13 +157,13 @@ body {
     width: 36px;
     height: 36px;
     padding: 2px;
-    border: 2px solid #2F7890;
+    border: 2px solid #86D1C4;
     border-radius: 50%;
     object-fit: cover;
 }
 
 .Logo-accent {
-    color: #2F7890;
+    color: #86D1C4;
 }
 
 .Hero {
@@ -194,9 +194,9 @@ body {
     align-items: center;
     gap: 10px;
     padding: 8px 14px;
-    border: 1px solid rgba(217, 164, 65, 0.5);
+    border: 1px solid rgba(31, 98, 89, 0.5);
     border-radius: 999px;
-    color: #2F7890;
+    color: #1F6259;
     font-size: 12px;
     letter-spacing: 1px;
 }
@@ -223,7 +223,7 @@ body {
 .Hero-meta-divider {
     width: 28px;
     height: 1px;
-    background-color: #2F7890;
+    background-color: #86D1C4;
 }
 
 .Hero-text h1 {
@@ -232,13 +232,13 @@ body {
 }
 
 .Greeting {
-    color: #A3B18A;
+    color: #1f6259;
     font-size: 20px;
     margin-bottom: 10px;
 }
 
 .Hero h1 {
-    color: #D9A441;
+    color: #F28C48;
     font-size: clamp(40px, 6vw, 68px);
     line-height: 1.2;
     margin-bottom: 15px;
@@ -246,7 +246,7 @@ body {
 
 .Hero h2 {
     font-size: 15px;
-    color: #A3B18A;
+    color: #1f6259;
     margin-top: 20px;
     margin-bottom: 20px;
 }
@@ -260,7 +260,7 @@ body {
 .Button {
     display: inline-block;
     padding: 12px 25px;
-    background-color: #2F7890;
+    background-color: #1f6259;
     color: #F4F0E6;
     text-decoration: none;
     font-weight: bold;
@@ -274,8 +274,8 @@ body {
 
 .Button-outline {
     background-color: transparent;
-    color: #A3B18A;
-    border: 1px solid #A3B18A;
+    color: #1f6259;
+    border: 1px solid #1f6259;
 }
 
 .Hero-image img {
@@ -308,7 +308,7 @@ body {
 .Skills h2,
 .Projects h2,
 .Contact h2 {
-    color: #D9A441;
+    color: #F28C48;
     font-size: 36px;
     margin-bottom: 50px;
     text-align: center;
@@ -332,6 +332,18 @@ body {
 
 .About-description {
     min-width: 0;
+}
+
+.About-motto {
+    margin: 0 0 24px;
+    color: #292D2A;
+    font-size: clamp(28px, 3vw, 36px);
+    font-weight: 700;
+    line-height: 1.25;
+}
+
+.About-motto span {
+    color: #86D1C4;
 }
 
 .About-description p {
@@ -386,14 +398,14 @@ body {
     grid-template-columns: repeat(4, minmax(0, 1fr));
     gap: 3px;
     padding: 6px;
-    border: 1px solid #2F7890;
+    border: 1px solid #1f6259;
     border-radius: 18px;
     background-color: #F4F0E6;
 }
 
 .About-tab:hover {
     background-color: rgba(62, 126, 101, 0.2);
-    color: #2F7890;
+    color: #86D1C4;
     transform: translateY(-2px);
 }
 
@@ -403,14 +415,14 @@ body {
     border: 0;
     border-radius: 12px;
     background: transparent;
-    color: #A3B18A;
+    color: #1f6259;
     font: inherit;
     font-weight: 700;
     cursor: pointer;
 }
 
 .About-tab[aria-selected="true"] {
-    background-color: #2F7890;
+    background-color: #1f6259;
     color: #ffffff;
 }
 
@@ -476,7 +488,7 @@ body {
 
 .Skill-card h3 {
     margin: 0;
-    color: #292D2A;
+    color: #004f45;
     font-size: 18px;
 }
 
@@ -496,7 +508,7 @@ body {
     flex: 1;
     height: 6px;
     border-radius: 5px;
-    background-color: #ffd364;
+    background-color: #86D1C4;
 }
 
 
@@ -538,14 +550,14 @@ body {
 }
 
 .Language-card {
-    background-color: #ffebb9;
+    background-color: #AEE3DB;
     min-height: 104px;
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
     gap: 8px;
-    border: 1px solid #dedbd2;
+    border: 1px solid #292D2A;
     border-radius: 10px;
     color: #292D2A;
     text-align: center;
@@ -553,7 +565,7 @@ body {
 }
 
 .Language-card:hover {
-    border-color: #a3e635;
+    border-color: #7effec;
     transform: translateY(-5px);
 }
 
@@ -577,15 +589,15 @@ body {
 /* Tier dimulai dari satu segmen: Intermediate, dua: Advanced, tiga: Expert. */
 
 .Skill-progress.intermediate span:nth-child(1) {
-    background-color: #D9A441;
+    background-color: #1f6259;
 }
 
 .Skill-progress.advanced span:nth-child(-n+2) {
-    background-color: #D9A441;
+    background-color: #1f6259;
 }
 
 .Skill-progress.expert span:nth-child(-n+3) {
-    background-color: #D9A441;
+    background-color: #1f6259;
 }
 
 .Skills-list {
@@ -607,7 +619,7 @@ body {
 
 .Skill-card,
 .Project-card {
-    background-color: #ffebb9;
+    background-color: #AEE3DB;
     border: 1px solid #292D2A;
     border-radius: 10px;
     padding: 25px;
@@ -627,7 +639,7 @@ body {
     overflow: hidden;
     color: inherit;
     text-decoration: none;
-    background-color: #ffebb9;
+    background-color: #AEE3DB;
     border-color: rgba(41, 45, 42, 0.2);
     box-shadow: 0 8px 24px rgba(41, 45, 42, 0.08);
     transition: transform 0.25s ease, box-shadow 0.25s ease, border-color 0.25s ease;
@@ -668,13 +680,13 @@ body {
     color: #292D2A;
     font-size: 22px;
     text-decoration: underline;
-    text-decoration-color: #D9A441;
+    text-decoration-color: #F28C48;
     text-underline-offset: 5px;
 }
 
 .Organization-card h4 {
     margin: 0;
-    color: #2F7890;
+    color: #1f6259;
     font-size: 15px;
     font-weight: 600;
     line-height: 1.5;
@@ -711,10 +723,10 @@ body {
     display: inline-block;
     margin-top: 18px;
     padding: 7px 12px;
-    border: 1px solid #D9A441;
+    border: 1px solid #F28C48;
     border-radius: 5px;
     color: #b27b20;
-    background-color: rgba(217, 164, 65, 0.1);
+    background-color: rgba(242, 140, 72, 0.1);
     font-size: 14px;
     font-weight: 700;
 }
@@ -722,12 +734,12 @@ body {
 .Contact a {
     display: inline-block;
     margin-top: 25px;
-    color: #D9A441;
+    color: #F28C48;
     text-decoration: none;
 }
 
 footer {
-    background-color: #2F7890;
+    background-color: #86D1C4;
     text-align: center;
     padding: 25px;
     border-top: 1px solid #262626;
@@ -808,7 +820,7 @@ footer {
     overflow-x: auto;
     padding: 4px 2px 14px;
     scroll-snap-type: x mandatory;
-    scrollbar-color: #2F7890 #e5e0d4;
+    scrollbar-color: #86D1C4 #e5e0d4;
     scrollbar-width: thin;
 }
 
@@ -817,7 +829,7 @@ footer {
     overflow: hidden;
     border: 1px solid rgba(41, 45, 42, 0.12);
     border-radius: 18px;
-    background: #F8F6F0;
+    background: #AEE3DB;
     box-shadow: 0 5px 16px rgba(41, 45, 42, 0.08);
     scroll-snap-align: start;
 }
@@ -828,7 +840,7 @@ footer {
     place-items: center;
     overflow: hidden;
     background: linear-gradient(135deg, #e8e4d9, #d6e5df);
-    color: #2F7890;
+    color: #86D1C4;
     font-size: 14px;
 }
 
@@ -863,7 +875,7 @@ footer {
     display: inline-flex;
     align-items: center;
     gap: 5px;
-    color: #2F7890;
+    color: #292D2A;
     font-size: 11px;
     letter-spacing: 1px;
     text-transform: uppercase;
@@ -875,7 +887,7 @@ footer {
     height: 17px;
     place-items: center;
     border-radius: 50%;
-    background: #2F7890;
+    background: #1f6259;
     color: #fff;
     font-weight: 700;
 }
@@ -908,7 +920,7 @@ footer {
     padding: 0;
     border: 0;
     background: linear-gradient(135deg, #e8e4d9, #d6e5df);
-    color: #2F7890;
+    color: #86D1C4;
     font: inherit;
     cursor: zoom-in;
 }
@@ -980,7 +992,7 @@ footer {
 
 .Certificate-modal-platform {
     margin: 20px 0 6px;
-    color: #2F7890;
+    color: #86D1C4;
     font-size: 12px;
     letter-spacing: 2px;
     text-transform: uppercase;
@@ -1017,7 +1029,7 @@ footer {
     overflow-x: auto;
     padding: 4px 2px 14px;
     scroll-snap-type: x mandatory;
-    scrollbar-color: #2F7890 #e5e0d4;
+    scrollbar-color: #86D1C4 #e5e0d4;
     scrollbar-width: thin;
 }
 
@@ -1050,7 +1062,7 @@ footer {
     padding: 0;
     border: 0;
     background: linear-gradient(135deg, #e8e4d9, #d6e5df);
-    color: #2F7890;
+    color: #86D1C4;
     font: inherit;
     cursor: zoom-in;
 }
