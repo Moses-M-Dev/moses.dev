@@ -6,6 +6,97 @@ window.addEventListener("scroll", () => {
 });
 /* End of Navbar shadow on scroll */
 
+/* Short synthesized water-ripple sound for interactive clicks */
+let clickAudioContext;
+let clickSfxUnavailableWarned = false;
+
+function playClickSound() {
+    const AudioContextConstructor = window.AudioContext || window.webkitAudioContext;
+
+    if (!AudioContextConstructor) {
+        if (!clickSfxUnavailableWarned) {
+            console.warn("Web Audio API is not supported; click sound is unavailable.");
+            clickSfxUnavailableWarned = true;
+        }
+        return;
+    }
+
+    if (!clickAudioContext) {
+        clickAudioContext = new AudioContextConstructor();
+    }
+
+    const playTone = () => {
+        const now = clickAudioContext.currentTime;
+        const ripples = [
+            { delay: 0, startFrequency: 1250, endFrequency: 620, volume: 0.04, duration: 0.09 },
+            { delay: 0.045, startFrequency: 1020, endFrequency: 520, volume: 0.022, duration: 0.1 },
+            { delay: 0.095, startFrequency: 820, endFrequency: 430, volume: 0.012, duration: 0.11 },
+        ];
+
+        ripples.forEach((ripple) => {
+            const start = now + ripple.delay;
+            const oscillator = clickAudioContext.createOscillator();
+            const volume = clickAudioContext.createGain();
+
+            oscillator.type = "sine";
+            oscillator.frequency.setValueAtTime(ripple.startFrequency, start);
+            oscillator.frequency.exponentialRampToValueAtTime(ripple.endFrequency, start + ripple.duration);
+            volume.gain.setValueAtTime(0.0001, start);
+            volume.gain.exponentialRampToValueAtTime(ripple.volume, start + 0.004);
+            volume.gain.exponentialRampToValueAtTime(0.0001, start + ripple.duration);
+            oscillator.connect(volume);
+            volume.connect(clickAudioContext.destination);
+            oscillator.start(start);
+            oscillator.stop(start + ripple.duration + 0.01);
+        });
+    };
+
+    if (clickAudioContext.state === "suspended") {
+        clickAudioContext.resume()
+            .then(playTone)
+            .catch((error) => console.error("Could not enable click sound.", error));
+        return;
+    }
+
+    playTone();
+}
+
+document.addEventListener("click", (event) => {
+    if (!(event.target instanceof Element)) return;
+    const control = event.target.closest('button:not(:disabled), a[href], [role="button"], [role="tab"]');
+    if (control) playClickSound();
+});
+/* End of click sound effect */
+
+/* Ripple trail follows mouse and pen movement */
+const reducedMotionPreference = window.matchMedia("(prefers-reduced-motion: reduce)");
+let lastRippleTime = 0;
+let lastRippleX = null;
+let lastRippleY = null;
+
+document.addEventListener("pointermove", (event) => {
+    if (event.pointerType === "touch" || reducedMotionPreference.matches) return;
+
+    const now = performance.now();
+    const distanceX = lastRippleX === null ? Infinity : event.clientX - lastRippleX;
+    const distanceY = lastRippleY === null ? Infinity : event.clientY - lastRippleY;
+    const movedEnough = distanceX * distanceX + distanceY * distanceY >= 400;
+
+    if (now - lastRippleTime < 80 || !movedEnough) return;
+
+    const ripple = document.createElement("span");
+    ripple.className = "Pointer-ripple";
+    ripple.style.left = `${event.clientX}px`;
+    ripple.style.top = `${event.clientY}px`;
+    ripple.addEventListener("animationend", () => ripple.remove(), { once: true });
+    document.body.append(ripple);
+
+    lastRippleTime = now;
+    lastRippleX = event.clientX;
+    lastRippleY = event.clientY;
+});
+/* End of pointer ripple trail */
+
 /* Navbar theme and music controls */
 const themeToggle = document.getElementById("theme-toggle");
 
