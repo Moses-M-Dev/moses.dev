@@ -129,12 +129,14 @@ body {
     padding: 10px 14px;
     color: #F4F0E6;
     font-size: 10px;
+    font-family: JetBrains Mono, monospace;
     letter-spacing: 3px;
     text-transform: uppercase;
     white-space: nowrap;
     text-decoration: none;
     transition: color 0.3s ease, background-color 0.3s ease, transform 0.3s ease;
     border-radius: 999px;
+
 }
 
 .Navbar nav a:hover {
@@ -168,15 +170,150 @@ body {
     color: #86D1C4;
 }
 
+.Navbar-actions {
+    grid-column: 3;
+    justify-self: end;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+/* Theme Toggle Button */
+
+.Theme-toggle,
+.Music-toggle {
+    min-height: 38px;
+    border: 1px solid rgba(41, 45, 42, 0.18);
+    border-radius: 999px;
+    background: rgba(247, 239, 229, 0.88);
+    color: #292D2A;
+    cursor: pointer;
+    transition: background-color 0.25s ease, transform 0.25s ease;
+}
+
+.Theme-toggle {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    padding: 4px 8px;
+}
+
+.Theme-toggle span {
+    display: grid;
+    width: 26px;
+    height: 26px;
+    place-items: center;
+    border-radius: 50%;
+    font-size: 17px;
+}
+
+.Theme-toggle span:first-child {
+    background: #F28C48;
+    color: #fff;
+}
+
+.Theme-toggle[aria-pressed="true"] span:first-child {
+    background: transparent;
+    color: inherit;
+}
+
+.Theme-toggle[aria-pressed="true"] span:last-child {
+    background: rgba(80, 205, 184, 0.58);
+    color: #fff;
+}
+
+/* Navbar CV Button */
+
+.Navbar-cv {
+    display: inline-flex;
+    min-height: 38px;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    padding: 0 16px;
+    border-radius: 6px;
+    background: #F28C48;
+    color: #fff;
+    font-family: JetBrains Mono, monospace;
+    font-size: 10px;
+    font-weight: 700;
+    letter-spacing: 1px;
+    text-decoration: none;
+    white-space: nowrap;
+    transition: background-color 0.25s ease, transform 0.25s ease;
+}
+
+.Navbar-cv:hover {
+    background: rgba(80, 205, 184, 0.58);
+    transform: translateY(-2px);
+}
+
+/* Music Toggle Button */
+
+.Music-toggle {
+    display: grid;
+    width: 38px;
+    place-items: center;
+    padding: 8px;
+}
+
+.Music-toggle svg {
+    width: 20px;
+    height: 20px;
+    fill: none;
+    stroke: currentColor;
+    stroke-linecap: round;
+    stroke-linejoin: round;
+    stroke-width: 1.8;
+}
+
+.Music-toggle .Music-waves {
+    display: none;
+}
+
+.Music-toggle .Music-cross {
+    display: block;
+}
+
+.Music-toggle:not(.is-muted) .Music-waves {
+    display: block;
+}
+
+.Music-toggle:not(.is-muted) .Music-cross {
+    display: none;
+}
+
+.Music-toggle:disabled {
+    opacity: 0.45;
+    cursor: not-allowed;
+}
+
+.Music-toggle:disabled:hover {
+    transform: none;
+}
+
+.Theme-toggle:hover,
+.Music-toggle:hover {
+    transform: translateY(-2px);
+}
+
+.Navbar-actions button:focus-visible,
+.Navbar-cv:focus-visible {
+    outline: 3px solid #1F6259;
+    outline-offset: 3px;
+}
+
+/* Hero Section */
+
 .Hero {
-    max-width: 1400px;
+    max-width: 0 auto;
     margin: 0 auto;
     min-height: 85vh;
     display: flex;
     justify-content: space-between;
     align-items: center;
     gap: 50px;
-    padding: 80px 8%;
+    padding: 80px 10%;
     background-color: #F7EFE5;
 }
 
@@ -238,6 +375,7 @@ body {
     color: #1f6259;
     font-size: 20px;
     margin-bottom: 10px;
+    font-family: JetBrains Mono, monospace;
 }
 
 .Hero h1 {
@@ -252,6 +390,7 @@ body {
     color: #1f6259;
     margin-top: 20px;
     margin-bottom: 20px;
+    font-family: JetBrains Mono, monospace;
 }
 
 .Hero-buttons {
@@ -332,6 +471,7 @@ body {
     box-shadow:
         0 0 10px rgba(134, 209, 196, 0.8),
         0 0 24px rgba(242, 140, 72, 0.45);
+    transform: translateY(-2px);
 }
 
 @keyframes button-border-flow {
@@ -375,12 +515,12 @@ body {
     content: "";
     position: absolute;
     top: 50%;
-    left: 50%;
+    left: 100%;
     z-index: 0;
-    width: clamp(250px, 30vw, 360px);
+    width: clamp(340px, 36vw, 440px);
     aspect-ratio: 1;
-    border-radius: 50%;
-    background-color: #86D1C4;
+    border-radius: 100%;
+    background-color: #F28C48;
     transform: translate(-50%, -50%);
 }
 
@@ -393,37 +533,34 @@ body {
     border-radius: 20px;
 }
 .About {
-    max-width: 1400px;
+    top-border: 1px solid rgba(31, 98, 89, 0.5);
+    max-width: 0 auto;
     margin: 0 auto;
-    padding: 80px 8%;
+    padding: 120px 8%;
     text-align: left;
-    border-top: 1px solid #262626;
-    background-color: #F7EFE5;
+    background-color: #ffefdc;
 }
 .Skills {
-    max-width: 1400px;
+    max-width: 0 auto;
     margin: 0 auto;
-    padding: 80px 8%;
+    padding: 120px 8%;
     text-align: left;
-    border-top: 1px solid #262626;
     background-color: #F7EFE5;
 }
 .Projects {
-    max-width: 1400px;
+    max-width: 0 auto;
     margin: 0 auto;
-    padding: 80px 8%;
+    padding: 120px 8%;
     text-align: left;
-    border-top: 1px solid #262626;
-    background-color: #F7EFE5;
+    background-color: #ffefdc;
     
 }
 
 .Contact {
-    max-width: 1400px;
+    max-width: 0 auto;
     margin: 0 auto;
-    padding: 80px 8%;
+    padding: 120px 8%;
     text-align: center;
-    border-top: 1px solid #262626;
     background-color: #F7EFE5;
 }
 
@@ -435,6 +572,7 @@ body {
     font-size: 36px;
     margin-bottom: 50px;
     text-align: center;
+    font-family: JetBrains Mono, monospace;
 }
 
 .About p,
@@ -442,6 +580,7 @@ body {
     max-width: 650px;
     margin: 0 auto;
     color: #292D2A;
+    font-family: JetBrains Mono, monospace;
 }
 
 /* About In-Depth Section */
@@ -451,6 +590,7 @@ body {
     grid-template-columns: minmax(0, 1fr) 300px minmax(0, 1fr);
     align-items: center;
     gap: 32px;
+    font-family: JetBrains Mono, monospace;
 }
 
 .About-description {
@@ -473,6 +613,7 @@ body {
     max-width: none;
     margin: 0;
     font-size: 20px;
+    font-family: Inter, sans-serif;
 }
 
 .About-description p + p {
@@ -637,6 +778,7 @@ body {
     border: 1px solid #1f6259;
     border-radius: 18px;
     background-color: #F4F0E6;
+    font-family: JetBrains Mono, monospace;
 }
 
 .About-tab:hover {
@@ -693,6 +835,7 @@ body {
     font-size: 30px;
     margin-bottom: 20px;
     margin-top: 20px;
+    font-family: JetBrains Mono, monospace;
 }
 .Skill-progress {
     display: flex;
@@ -710,6 +853,7 @@ body {
     display: flex;
     align-items: center;
     gap: 15px;
+    font-family: JetBrains Mono, monospace;
 }
 
 .Skill-divider {
@@ -720,12 +864,14 @@ body {
 
 .Skill-description {
     flex: 1;
+    font-family: JetBrains Mono, monospace;
 }
 
 .Skill-card h3 {
     margin: 0;
     color: #004f45;
     font-size: 16px;
+    font-family: JetBrains Mono, monospace;
 }
 
 .Skill-name {
@@ -752,9 +898,10 @@ body {
 .Skill-rank {
     margin-top: 5px;
     color: #292D2A;
-    font-size: 14px;
+    font-size: 12px;
     letter-spacing: 2px;
     text-align: right;
+    font-family: JetBrains Mono, monospace;
 }
 
 .Skill-progress span {
@@ -811,6 +958,7 @@ body {
     color: #292D2A;
     text-align: center;
     transition: transform 0.3s ease, border-color 0.3s ease;
+    font-family: JetBrains Mono, monospace;
 }
 
 .Language-card:hover {
@@ -832,6 +980,56 @@ body {
 }
 
 .Language-card p {
+    margin: 0;
+}
+
+/* Tools & Platforms */
+
+.Tools-platform-section {
+    margin-top: 40px;
+}
+
+.Tools-platform-heading {
+    margin-bottom: 16px;
+    color: #898575;
+    font-size: 14px;
+    letter-spacing: 3px;
+}
+
+.Tools-platform-list {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(135px, 160px));
+    gap: 12px;
+}
+
+.Tools-platform-card {
+    background-color: #AEE3DB;
+    min-height: 104px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    border: 1px solid #292D2A;
+    border-radius: 10px;
+    color: #292D2A;
+    text-align: center;
+    transition: transform 0.3s ease, border-color 0.3s ease;
+    font-family: JetBrains Mono, monospace;
+}
+
+.Tools-platform-card:hover {
+    border-color: #7effec;
+    transform: translateY(-5px);
+}
+
+.Tools-platform-logo {
+    width: 30px;
+    height: 30px;
+    object-fit: contain;
+}
+
+.Tools-platform-card p {
     margin: 0;
 }
 
@@ -987,6 +1185,454 @@ body {
     text-decoration: none;
 }
 
+.Contact-links {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 14px;
+    margin-top: 25px;
+}
+
+.Contact .Contact-card {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: min(100%, 180px);
+    min-height: 118px;
+    margin: 0;
+    gap: 8px;
+    color: #292D2A;
+    text-decoration: none;
+}
+
+.Contact-card-icon {
+    display: block;
+    width: 36px;
+    height: 36px;
+}
+
+.Contact .Contact-card:focus-visible {
+    outline: 3px solid #1F6259;
+    outline-offset: 4px;
+}
+
+.Music {
+    display: grid;
+    grid-template-columns: minmax(0, 0.8fr) minmax(0, 1.2fr);
+    align-items: center;
+    gap: clamp(28px, 5vw, 64px);
+    width: min(100%, 1200px);
+    margin: 64px auto 0;
+    padding: clamp(24px, 4vw, 44px);
+    overflow: hidden;
+    border: 1px solid rgba(31, 98, 89, 0.24);
+    border-radius: 28px;
+    background:
+        radial-gradient(circle at 0 0, rgba(134, 209, 196, 0.22), transparent 38%),
+        linear-gradient(135deg, #FFFDF7, #F1EEE5 70%, #E8F2ED);
+    box-shadow: 0 20px 56px rgba(41, 45, 42, 0.12);
+    color: #292D2A;
+    text-align: left;
+}
+
+.Music-copy {
+    min-width: 0;
+}
+
+.Contact .Music-eyebrow {
+    max-width: none;
+    margin: 0 0 12px;
+    color: #1F6259;
+    font-family: JetBrains Mono, monospace;
+    font-size: 11px;
+    letter-spacing: 3px;
+}
+
+.Music h3 {
+    margin: 0;
+    color: #292D2A;
+    font-size: clamp(32px, 4vw, 56px);
+    line-height: 1.12;
+    letter-spacing: -1.5px;
+}
+
+.Music h3 span {
+    color: #1F6259;
+}
+
+.Contact .Music-description {
+    max-width: 440px;
+    margin: 22px 0 26px;
+    color: #656B67;
+    font-family: Arial, sans-serif;
+    font-size: 16px;
+    line-height: 1.8;
+    text-align: left;
+}
+
+.Contact .Music-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    margin: 0;
+    padding: 12px 16px;
+    border: 1px solid rgba(31, 98, 89, 0.28);
+    border-radius: 10px;
+    background: #E5F3EF;
+    color: #1F6259;
+    font: inherit;
+    font-weight: 700;
+    cursor: pointer;
+    transition: background-color 0.2s ease, border-color 0.2s ease, transform 0.2s ease;
+}
+
+.Contact .Music-link:hover,
+.Contact .Music-link:focus-visible {
+    border-color: #1F6259;
+    background: #D5EBE4;
+    transform: translateY(-2px);
+}
+
+.Contact .Music-link:disabled {
+    opacity: 0.55;
+    cursor: not-allowed;
+    transform: none;
+}
+
+.Music-player {
+    min-width: 0;
+    overflow: hidden;
+    padding: 22px;
+    border: 1px solid rgba(41, 45, 42, 0.12);
+    border-radius: 18px;
+    background: #FFFEFA;
+    box-shadow: 0 16px 36px rgba(41, 45, 42, 0.12);
+    color: #292D2A;
+}
+
+.Music-player-header {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    min-width: 0;
+    margin-bottom: 20px;
+}
+
+.Music-art {
+    display: grid;
+    width: 76px;
+    height: 76px;
+    flex: 0 0 76px;
+    place-items: center;
+    border-radius: 12px;
+    background: linear-gradient(145deg, #1F6259, #86D1C4 55%, #F28C48);
+    color: #fff;
+}
+
+.Music-art span {
+    font-size: 38px;
+    line-height: 1;
+}
+
+.Music-track-meta {
+    display: flex;
+    min-width: 0;
+    flex: 1;
+    flex-direction: column;
+    gap: 4px;
+    text-align: left;
+}
+
+.Music-now-playing {
+    color: #1F6259;
+    font-family: JetBrains Mono, monospace;
+    font-size: 10px;
+    letter-spacing: 1.5px;
+}
+
+.Music-track-meta h4 {
+    overflow: hidden;
+    margin: 0;
+    color: #292D2A;
+    font-size: 18px;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+.Music-track-meta p {
+    overflow: hidden;
+    margin: 0;
+    color: #777D78;
+    font-size: 14px;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+.Music-player-mark {
+    color: #1F6259;
+    font-size: 25px;
+}
+
+.Music-controls {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 18px;
+    margin: 12px 0;
+}
+
+.Music-control-button {
+    display: grid;
+    width: 38px;
+    height: 38px;
+    place-items: center;
+    border: 0;
+    border-radius: 50%;
+    background: transparent;
+    color: #292D2A;
+    font-size: 16px;
+    cursor: pointer;
+    transition: background-color 0.2s ease, transform 0.2s ease;
+}
+
+.Music-control-button:hover:not(:disabled) {
+    background: rgba(31, 98, 89, 0.12);
+    transform: scale(1.06);
+}
+
+.Music-control-button.is-primary {
+    width: 48px;
+    height: 48px;
+    background: #1F6259;
+    color: #fff;
+}
+
+.Music-control-button.is-primary:hover:not(:disabled) {
+    background: #174D46;
+}
+
+.Music-control-button:disabled {
+    opacity: 0.4;
+    cursor: not-allowed;
+}
+
+.Music-progress {
+    display: grid;
+    grid-template-columns: 38px minmax(0, 1fr) 38px;
+    align-items: center;
+    gap: 10px;
+    color: #777D78;
+    font-size: 11px;
+    font-variant-numeric: tabular-nums;
+}
+
+.Music-progress input {
+    width: 100%;
+    accent-color: #1F6259;
+    cursor: pointer;
+}
+
+.Music-progress input:disabled {
+    cursor: not-allowed;
+}
+
+.Music-tracklist {
+    max-height: 168px;
+    margin: 18px 0 0;
+    padding: 0;
+    overflow-y: auto;
+    list-style: none;
+}
+
+.Music-tracklist li + li {
+    margin-top: 3px;
+}
+
+.Music-track-button {
+    display: grid;
+    grid-template-columns: 28px minmax(0, 1fr);
+    align-items: center;
+    width: 100%;
+    padding: 9px 10px;
+    border: 0;
+    border-radius: 8px;
+    background: transparent;
+    color: #292D2A;
+    text-align: left;
+    cursor: pointer;
+}
+
+.Music-track-button:hover,
+.Music-track-button.is-current {
+    background: #E5F3EF;
+}
+
+.Music-track-index {
+    color: #777D78;
+    font-size: 12px;
+}
+
+.Music-track-label {
+    display: flex;
+    min-width: 0;
+    flex-direction: column;
+}
+
+.Music-track-name,
+.Music-track-artist {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+.Music-track-name {
+    font-size: 13px;
+    font-weight: 700;
+}
+
+.Music-track-artist {
+    color: #777D78;
+    font-size: 11px;
+}
+
+.Contact .Music-empty {
+    max-width: none;
+    margin: 18px 0 0;
+    color: #777D78;
+    font-size: 13px;
+    line-height: 1.6;
+    text-align: left;
+}
+
+.Contact .Music-status {
+    max-width: none;
+    margin: 14px 0 0;
+    color: #9A5A24;
+    font-size: 12px;
+    line-height: 1.5;
+    text-align: left;
+}
+
+.Music-empty code {
+    color: #1F6259;
+}
+
+body.dark-theme .Music {
+    border-color: rgba(85, 135, 235, 0.28);
+    background:
+        radial-gradient(circle at 0 0, rgba(47, 105, 220, 0.18), transparent 38%),
+        linear-gradient(135deg, #0B1222, #070C18 70%, #0B1428);
+    box-shadow: 0 24px 70px rgba(8, 15, 34, 0.3);
+    color: #F4F7FF;
+}
+
+body.dark-theme .Contact .Music-eyebrow {
+    color: #8EA5CF;
+}
+
+body.dark-theme .Music h3 {
+    color: #F4F7FF;
+}
+
+body.dark-theme .Music h3 span {
+    color: #4B88FF;
+}
+
+body.dark-theme .Contact .Music-description {
+    color: #9AA9C1;
+}
+
+body.dark-theme .Contact .Music-status {
+    color: #F2C27D;
+}
+
+body.dark-theme .Contact .Music-link {
+    border-color: rgba(75, 136, 255, 0.42);
+    background: rgba(15, 27, 52, 0.8);
+    color: #C6D8F7;
+}
+
+body.dark-theme .Contact .Music-link:hover,
+body.dark-theme .Contact .Music-link:focus-visible {
+    border-color: #4B88FF;
+    background: rgba(34, 65, 123, 0.55);
+}
+
+body.dark-theme .Music-player {
+    border-color: rgba(255, 255, 255, 0.12);
+    background: #121212;
+    color: #F4F7FF;
+    box-shadow: 0 16px 36px rgba(0, 0, 0, 0.3);
+}
+
+body.dark-theme .Music-track-meta h4,
+body.dark-theme .Music-control-button,
+body.dark-theme .Music-track-button {
+    color: #F4F7FF;
+}
+
+body.dark-theme .Music-player .Music-track-meta p,
+body.dark-theme .Music-track-index,
+body.dark-theme .Music-track-artist,
+body.dark-theme .Music-progress,
+body.dark-theme .Contact .Music-empty {
+    color: #9AA0A6;
+}
+
+body.dark-theme .Music-now-playing,
+body.dark-theme .Music-player-mark,
+body.dark-theme .Music-empty code {
+    color: #86D1C4;
+}
+
+body.dark-theme .Music-art {
+    background: linear-gradient(145deg, #174D46, #1F6259 55%, #F28C48);
+}
+
+body.dark-theme .Music-control-button:hover:not(:disabled),
+body.dark-theme .Music-track-button:hover,
+body.dark-theme .Music-track-button.is-current {
+    background: #292D34;
+}
+
+body.dark-theme .Music-control-button.is-primary,
+body.dark-theme .Music-control-button.is-primary:hover:not(:disabled) {
+    background: #86D1C4;
+    color: #101714;
+}
+
+body.dark-theme .Music-progress input {
+    accent-color: #86D1C4;
+}
+
+body.dark-theme .Music-track-button.is-current .Music-track-index {
+    color: #86D1C4;
+}
+
+body.dark-theme .Music-track-button.is-current .Music-track-name {
+    color: #86D1C4;
+}
+
+body.dark-theme .Music-tracklist {
+    scrollbar-color: #515A66 #1B1B1B;
+}
+
+.Music-player button:focus-visible,
+.Music-progress input:focus-visible {
+    outline: 2px solid #1F6259;
+    outline-offset: 3px;
+}
+
+body.dark-theme .Music-player button:focus-visible,
+body.dark-theme .Music-progress input:focus-visible {
+    outline-color: #86D1C4;
+}
+
+.Music-player audio {
+    display: none;
+}
+
 footer {
     background-color: #86D1C4;
     text-align: center;
@@ -1019,6 +1665,13 @@ footer {
     .Navbar nav a {
         padding: 10px 12px;
         font-size: 9px;
+    }
+
+    .Navbar-actions {
+        align-self: center;
+        justify-self: auto;
+        flex-wrap: wrap;
+        justify-content: center;
     }
 
     .Hero {
@@ -1057,6 +1710,20 @@ footer {
         padding: 60px 6%;
     }
 
+}
+
+@media (max-width: 900px) {
+    .Music {
+        grid-template-columns: minmax(0, 1fr);
+        gap: 28px;
+        margin-top: 48px;
+        padding: clamp(22px, 5vw, 36px);
+        border-radius: 22px;
+    }
+
+    .Music h3 {
+        font-size: clamp(34px, 8vw, 48px);
+    }
 }
 
 
@@ -1429,4 +2096,308 @@ footer {
         transform: none;
         opacity: 1;
     }   
+}
+
+/* Animated outline for cards */
+.About-profile-card,
+.Skill-card,
+.Project-card,
+.Language-card,
+.Tools-platform-card,
+.Certificate-card {
+    position: relative;
+    isolation: isolate;
+    --card-outline-gradient: linear-gradient(
+        90deg,
+        #AEE3DB 0%,
+        #1F6259 25%,
+        #AEE3DB 50%,
+        #1F6259 75%,
+        #AEE3DB 100%
+    );
+    --card-glow-color: rgba(134, 209, 196, 0.55);
+    --card-glow-secondary: rgba(174, 227, 219, 0.4);
+    --card-glow-accent: rgba(242, 140, 72, 0.28);
+}
+
+.About-profile-card::after,
+.Skill-card::after,
+.Project-card::after,
+.Language-card::after,
+.Tools-platform-card::after,
+.Certificate-card::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    z-index: 2;
+    padding: 2px;
+    border-radius: inherit;
+    background: var(--card-outline-gradient);
+    background-size: 200% 100%;
+    background-position: 0 50%;
+    opacity: 1;
+    pointer-events: none;
+    animation: card-outline-flow 3s linear infinite;
+    -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+    -webkit-mask-composite: xor;
+    mask-composite: exclude;
+}
+
+.About-profile-card:hover,
+.Skill-card:hover,
+.Project-card:hover,
+.Language-card:hover,
+.Tools-platform-card:hover,
+.Certificate-card:hover {
+    --card-outline-gradient: linear-gradient(
+        90deg,
+        #86D1C4 0%,
+        #AEE3DB 12.5%,
+        #F28C48 25%,
+        #AEE3DB 37.5%,
+        #86D1C4 50%,
+        #AEE3DB 62.5%,
+        #F28C48 75%,
+        #AEE3DB 87.5%,
+        #86D1C4 100%
+    );
+    animation: card-outline-glow 1.8s ease-in-out infinite alternate;
+    transform: translateY(-2px);
+    --card-glow-color: rgba(134, 209, 196, 0.9);
+    --card-glow-secondary: rgba(174, 227, 219, 0.75);
+    --card-glow-accent: rgba(242, 140, 72, 0.7);
+}
+
+@keyframes card-outline-flow {
+    to {
+        background-position: 100% 50%;
+    }
+}
+
+@keyframes card-outline-glow {
+    from {
+        box-shadow:
+            0 0 3px 1px var(--card-glow-color),
+            0 0 6px 1px var(--card-glow-secondary),
+            0 0 8px 1px var(--card-glow-accent);
+    }
+
+    to {
+        box-shadow:
+            0 0 7px 2px var(--card-glow-color),
+            0 0 12px 2px var(--card-glow-secondary),
+            0 0 16px 3px var(--card-glow-accent);
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .About-profile-card::after,
+    .Skill-card::after,
+    .Project-card::after,
+    .Language-card::after,
+    .Tools-platform-card::after,
+    .Certificate-card::after {
+        animation: none;
+        background-position: 50% 50%;
+    }
+
+    .About-profile-card:hover,
+    .Skill-card:hover,
+    .Project-card:hover,
+    .Language-card:hover,
+    .Tools-platform-card:hover,
+    .Certificate-card:hover {
+        animation: none;
+    }
+}
+
+
+/* ------------------------------------------------------------------------------------- */
+
+
+
+/* Dark Theme Styles */
+
+body.dark-theme {
+    background-color: #17191E;
+    color: #F4F0E6;
+}
+
+body.dark-theme .Navbar-cv
+    {
+        background-color: rgba(80, 205, 184, 0.58);
+        color: #F4F0E6;
+    }
+
+body.dark-theme .Preloader,
+body.dark-theme .Hero {
+    background-color: #1D2127;
+    color: #F4F0E6;
+}
+body.dark-theme .About {
+    background-color: #1a222e;
+    color: #F4F0E6;
+}
+body.dark-theme .Skills {
+    background-color: #1D2127;
+    color: #F4F0E6;
+}
+body.dark-theme .Projects {
+    background-color: #1a222e;
+    color: #F4F0E6;
+}
+body.dark-theme .Contact {
+    background-color: #1D2127;
+    color: #F4F0E6;
+}
+
+body.dark-theme .Greeting,
+body.dark-theme .Hero h2,
+body.dark-theme .Availability {
+    color: #CDE8DF;
+}
+
+body.dark-theme .Availability {
+    border-color: rgba(134, 209, 196, 0.55);
+}
+
+body.dark-theme .Hero-location,
+body.dark-theme .Language-heading,
+body.dark-theme .Tools-platform-heading {
+    color: #C2C5C6;
+}
+
+body.dark-theme .Logo {
+    color: #F4F0E6;
+}
+
+body.dark-theme .Navbar nav {
+    background-color: rgba(31, 98, 89, 0.9);
+}
+
+body.dark-theme .Navbar nav a {
+    color: #F4F0E6;
+}
+
+body.dark-theme .Theme-toggle,
+body.dark-theme .Music-toggle {
+    border-color: rgba(244, 240, 230, 0.2);
+    background-color: #292D34;
+    color: #F4F0E6;
+}
+
+body.dark-theme .About p,
+body.dark-theme .Contact p,
+body.dark-theme .About-motto,
+body.dark-theme .Skills h3,
+body.dark-theme .Skill-card,
+body.dark-theme .Project-card,
+body.dark-theme .Language-card,
+body.dark-theme .Tools-platform-card,
+body.dark-theme .Certificate-card {
+    color: #F4F0E6;
+}
+
+body.dark-theme .Contact .Music-eyebrow {
+    color: #8EA5CF;
+}
+
+body.dark-theme .Contact .Music-description {
+    color: #9AA9C1;
+}
+
+body.dark-theme .Skill-card,
+body.dark-theme .Project-card,
+body.dark-theme .Language-card,
+body.dark-theme .Tools-platform-card,
+body.dark-theme .Certificate-card {
+    border-color: #46505A;
+    background-color: #292D34;
+}
+
+body.dark-theme .About-profile-card,
+body.dark-theme .Skill-card,
+body.dark-theme .Project-card,
+body.dark-theme .Language-card,
+body.dark-theme .Tools-platform-card,
+body.dark-theme .Certificate-card {
+    --card-glow-color: rgba(134, 209, 196, 0.9);
+    --card-glow-secondary: rgba(174, 227, 219, 0.75);
+    --card-glow-accent: rgba(242, 140, 72, 0.7);
+}
+
+body.dark-theme .Hero-image::before {
+    background-color:#1F6259;
+}
+
+body.dark-theme .About-tabs {
+    border-color: #86D1C4;
+    background-color: #252A30;
+}
+
+body.dark-theme .About-tab {
+    color: #F4F0E6;
+}
+
+body.dark-theme .About-tab[aria-selected="true"] {
+    background-color: #1F6259;
+    color: #fff;
+}
+
+body.dark-theme .Skill-card h3,
+body.dark-theme .Skill-name,
+body.dark-theme .Project-card h3,
+body.dark-theme .Project-card p,
+body.dark-theme .Organization-card h4,
+body.dark-theme .Certificate-details h3,
+body.dark-theme .Certificate-details h4 {
+    color: #F4F0E6;
+}
+
+body.dark-theme .Skill-divider {
+    border-color: #46505A;
+}
+
+body.dark-theme .Project-tags span {
+    border-color: #66746F;
+    color: #CDE8DF;
+}
+
+body.dark-theme footer {
+    border-color: #46505A;
+    background-color: #202A2D;
+}
+
+body.dark-theme .Navbar,
+body.dark-theme .Hero.is-visible,
+body.dark-theme .About.is-visible,
+body.dark-theme .Skills.is-visible,
+body.dark-theme .Projects.is-visible,
+body.dark-theme .Contact.is-visible,
+body.dark-theme footer {
+    animation: dark-mode-fade-left 650ms ease both;
+}
+
+@keyframes dark-mode-fade-left {
+    from {
+        opacity: 0;
+        transform: translateX(28px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    body.dark-theme .Navbar,
+    body.dark-theme .Hero.is-visible,
+    body.dark-theme .About.is-visible,
+    body.dark-theme .Skills.is-visible,
+    body.dark-theme .Projects.is-visible,
+    body.dark-theme .Contact.is-visible,
+    body.dark-theme footer {
+        animation: none;
+    }
 }

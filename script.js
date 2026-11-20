@@ -6,6 +6,222 @@ window.addEventListener("scroll", () => {
 });
 /* End of Navbar shadow on scroll */
 
+/* Navbar theme and music controls */
+const themeToggle = document.getElementById("theme-toggle");
+
+themeToggle.addEventListener("click", () => {
+    const isDark = document.body.classList.toggle("dark-theme");
+    themeToggle.setAttribute("aria-pressed", isDark);
+    themeToggle.setAttribute("aria-label", isDark ? "Switch to light theme" : "Switch to dark theme");
+});
+
+const musicToggle = document.getElementById("music-toggle");
+const backgroundMusic = document.getElementById("background-music");
+const musicStartButton = document.getElementById("music-start-button");
+const musicPlayToggle = document.getElementById("music-play-toggle");
+const musicPreviousButton = document.getElementById("music-previous");
+const musicNextButton = document.getElementById("music-next");
+const musicProgress = document.getElementById("music-progress");
+const musicCurrentTime = document.getElementById("music-current-time");
+const musicDuration = document.getElementById("music-duration");
+const musicTrackTitle = document.getElementById("music-track-title");
+const musicTrackArtist = document.getElementById("music-track-artist");
+const musicTrackList = document.getElementById("music-tracklist");
+const musicEmptyMessage = document.getElementById("music-empty");
+const musicStatus = document.getElementById("music-status");
+
+const musicTracks = [
+    { title: "Seasons", artist: "wave to earth", src: "assets/music/seasons.mp3" },
+    { title: "love", artist: "wave to earth", src: "assets/music/love.mp3" },
+    { title: "multo", artist: "Darlyne Nightbloom", src: "assets/music/multo.mp3" },
+    { title: "blue", artist: "yung kai", src: "assets/music/blue.mp3" },
+    { title: "if only...", artist: "Skyline", src: "assets/music/if-only.mp3" },
+    
+];
+
+let currentTrackIndex = 0;
+
+function formatMusicTime(seconds) {
+    if (!Number.isFinite(seconds)) return "0:00";
+
+    const minutes = Math.floor(seconds / 60);
+    const remainingSeconds = Math.floor(seconds % 60).toString().padStart(2, "0");
+    return `${minutes}:${remainingSeconds}`;
+}
+
+function updateMusicToggle() {
+    const isMuted = backgroundMusic.muted || backgroundMusic.paused;
+    musicToggle.classList.toggle("is-muted", isMuted);
+    musicToggle.setAttribute("aria-pressed", String(!isMuted));
+    musicToggle.setAttribute("aria-label", isMuted ? "Putar musik" : "Mute musik");
+}
+
+function updateMusicPlaybackState() {
+    const isPlaying = !backgroundMusic.paused;
+    musicPlayToggle.textContent = isPlaying ? "Ⅱ" : "▶";
+    musicPlayToggle.setAttribute("aria-label", isPlaying ? "Jeda lagu" : "Putar lagu");
+    musicPlayToggle.setAttribute("aria-pressed", String(isPlaying));
+}
+
+function updateMusicProgress() {
+    const duration = backgroundMusic.duration;
+    const currentTime = backgroundMusic.currentTime;
+
+    musicCurrentTime.textContent = formatMusicTime(currentTime);
+    musicDuration.textContent = formatMusicTime(duration);
+    musicProgress.value = Number.isFinite(duration) && duration > 0
+        ? String((currentTime / duration) * 100)
+        : "0";
+}
+
+function playCurrentTrack(isAutoplay = false) {
+    if (!musicTracks.length) return;
+
+    backgroundMusic.muted = false;
+    backgroundMusic.play()
+        .then(() => {
+            musicStatus.hidden = true;
+        })
+        .catch((error) => {
+            if (isAutoplay && error.name === "NotAllowedError") {
+                musicStatus.textContent = "Browser memblokir autoplay dengan suara. Klik tombol Play untuk mulai mendengarkan.";
+            } else {
+                console.error("Tidak dapat memutar lagu. Periksa file dan path di assets/music/.", error);
+                musicStatus.textContent = "Lagu tidak dapat diputar. Periksa file audio dan path-nya.";
+            }
+
+            musicStatus.hidden = false;
+        });
+}
+
+function selectMusicTrack(index, autoplay) {
+    if (!musicTracks.length) return;
+
+    currentTrackIndex = (index + musicTracks.length) % musicTracks.length;
+    const track = musicTracks[currentTrackIndex];
+
+    backgroundMusic.pause();
+    backgroundMusic.src = track.src;
+    backgroundMusic.load();
+    musicTrackTitle.textContent = track.title;
+    musicTrackArtist.textContent = track.artist;
+    musicProgress.value = "0";
+    musicCurrentTime.textContent = "0:00";
+    musicDuration.textContent = "0:00";
+    musicStatus.hidden = true;
+
+    musicTrackList.querySelectorAll(".Music-track-button").forEach((button, trackIndex) => {
+        const isCurrent = trackIndex === currentTrackIndex;
+        button.classList.toggle("is-current", isCurrent);
+        if (isCurrent) {
+            button.setAttribute("aria-current", "true");
+        } else {
+            button.removeAttribute("aria-current");
+        }
+    });
+
+    if (autoplay) playCurrentTrack();
+}
+
+function initializeMusicPlayer() {
+    if (!musicTracks.length) return;
+
+    musicTracks.forEach((track, index) => {
+        const item = document.createElement("li");
+        const button = document.createElement("button");
+        const number = document.createElement("span");
+        const label = document.createElement("span");
+        const title = document.createElement("span");
+        const artist = document.createElement("span");
+
+        button.className = "Music-track-button";
+        button.type = "button";
+        number.className = "Music-track-index";
+        label.className = "Music-track-label";
+        title.className = "Music-track-name";
+        artist.className = "Music-track-artist";
+        number.textContent = String(index + 1).padStart(2, "0");
+        title.textContent = track.title;
+        artist.textContent = track.artist;
+        label.append(title, artist);
+        button.append(number, label);
+        button.addEventListener("click", () => selectMusicTrack(index, true));
+        item.append(button);
+        musicTrackList.append(item);
+    });
+
+    musicEmptyMessage.hidden = true;
+    musicTrackList.hidden = false;
+    musicToggle.disabled = false;
+    musicStartButton.disabled = false;
+    musicPlayToggle.disabled = false;
+    musicPreviousButton.disabled = false;
+    musicNextButton.disabled = false;
+    musicProgress.disabled = false;
+    selectMusicTrack(0, false);
+    playCurrentTrack(true);
+}
+
+musicToggle.addEventListener("click", () => {
+    if (!musicTracks.length) return;
+
+    if (backgroundMusic.paused) {
+        playCurrentTrack();
+    } else {
+        backgroundMusic.muted = !backgroundMusic.muted;
+    }
+
+    updateMusicToggle();
+});
+
+musicStartButton.addEventListener("click", playCurrentTrack);
+
+musicPlayToggle.addEventListener("click", () => {
+    if (backgroundMusic.paused) {
+        playCurrentTrack();
+    } else {
+        backgroundMusic.pause();
+    }
+});
+
+musicPreviousButton.addEventListener("click", () => {
+    selectMusicTrack(currentTrackIndex - 1, true);
+});
+
+musicNextButton.addEventListener("click", () => {
+    selectMusicTrack(currentTrackIndex + 1, true);
+});
+
+musicProgress.addEventListener("input", () => {
+    if (Number.isFinite(backgroundMusic.duration) && backgroundMusic.duration > 0) {
+        backgroundMusic.currentTime = (Number(musicProgress.value) / 100) * backgroundMusic.duration;
+    }
+});
+
+backgroundMusic.addEventListener("timeupdate", updateMusicProgress);
+backgroundMusic.addEventListener("loadedmetadata", updateMusicProgress);
+backgroundMusic.addEventListener("play", updateMusicPlaybackState);
+backgroundMusic.addEventListener("pause", updateMusicPlaybackState);
+backgroundMusic.addEventListener("play", updateMusicToggle);
+backgroundMusic.addEventListener("pause", updateMusicToggle);
+backgroundMusic.addEventListener("volumechange", updateMusicToggle);
+backgroundMusic.addEventListener("ended", () => {
+    if (currentTrackIndex < musicTracks.length - 1) {
+        selectMusicTrack(currentTrackIndex + 1, true);
+    }
+});
+backgroundMusic.addEventListener("error", () => {
+    const track = musicTracks[currentTrackIndex];
+    if (track) {
+        console.error(`Gagal memuat "${track.title}" dari ${track.src}.`, backgroundMusic.error);
+    }
+});
+
+initializeMusicPlayer();
+updateMusicToggle();
+updateMusicPlaybackState();
+/* End of Navbar theme and music controls */
+
 /** Loading Preloader */
 const preloader = document.getElementById("preloader");
 const progressTrack = document.querySelector(".Preloader-track");
