@@ -43,7 +43,7 @@
         </nav>
     </header>
 
-    <section class="Hero" id="home">
+    <section class="Hero fade-up" id="home">
         <div class="Hero-text">
             <div class="Hero-meta">
                 <p class="Availability">
@@ -59,11 +59,11 @@
             <p class="Greeting">MEET,</p>
             <h1>MOSES</h1>
             <h1>SUTRISNO.</h1>
-            <h2>> Information System Student</h2>
+            <h2> > Information System Student</h2>
 
             <div class="Hero-buttons">
-                <a href="#projects" class="Button">My Projects</a>
-                <a href="#contact" class="Button Button-outline">Contact Me</a>
+                <a href="#projects" class="MyProject-button">My Projects</a>
+                <a href="#contact" class="ContactMe-button"><span>Contact Me</span></a>
             </div>
         </div>
 
@@ -72,7 +72,7 @@
         </div>
     </section>
 
-    <section class="About" id="about">
+    <section class="About fade-up" id="about">
         <h2>ABOUT ME</h2>
         <div class="About-tabs" role="tablist" aria-label="About Me">
             <button class="About-tab" type="button" role="tab"
@@ -98,11 +98,11 @@
                 <div class="About-layout">
                     <div class="About-description">
                         <blockquote class="About-motto">
-                            Strive for <span>progress</span>,<br>
-                            not <span>perfection</span>.
+                            Strive for <span>Progress</span>,<br>
+                            not <span>Perfection</span>.
                         </blockquote>
                         <p>
-                            I am an Information Systems student on <strong style="color: #245B45;">3rd Semester</strong> who is learning
+                            I am an Information Systems student on <strong style="color: #F28C48;">3rd Semester</strong> who is learning
                             programming, database management, and web development.
                             I enjoy learning new technologies and building fun projects that bring me up to the next level.
                         </p>
@@ -118,7 +118,49 @@
                         <img class="About-photo-ted" src="assets/Ted.png" alt="" aria-hidden="true">
                     </div>
 
-                    <div class="About-card-space" aria-hidden="true"></div>
+                    <aside class="About-profile-card" aria-label="Profile summary">
+                        <div class="About-profile-titlebar" aria-hidden="true">
+                            <span class="About-window-dot dot-red"></span>
+                            <span class="About-window-dot dot-yellow"></span>
+                            <span class="About-window-dot dot-green"></span>
+                            <span class="About-profile-filename">profile.json</span>
+                        </div>
+
+                        <dl class="About-profile-data">
+                            <div class="About-profile-row">
+                                <dt>name</dt>
+                                <dd>Moses Sutrisno</dd>
+                            </div>
+                            <div class="About-profile-row">
+                                <dt>role</dt>
+                                <dd class="value-mint">Information Systems Student</dd>
+                            </div>
+                            <div class="About-profile-row">
+                                <dt>university</dt>
+                                <dd class="value-blue">Maranatha Christian University</dd>
+                            </div>
+                            <div class="About-profile-row">
+                                <dt>major</dt>
+                                <dd>Information Systems</dd>
+                            </div>
+                            <div class="About-profile-row">
+                                <dt>semester</dt>
+                                <dd class="value-mint">3rd Semester</dd>
+                            </div>
+                            <div class="About-profile-row">
+                                <dt>openToWork</dt>
+                                <dd class="value-mint">true</dd>
+                            </div>
+                            <div class="About-profile-row">
+                                <dt>github</dt>
+                                <dd class="value-purple">Moses-M-Dev</dd>
+                            </div>
+                        </dl>
+
+                        <div class="About-profile-prompt" aria-hidden="true">
+                            <span>$</span><i></i>
+                        </div>
+                    </aside>
                 </div>
             </div>
 
@@ -175,7 +217,6 @@
                 <section class="Certificate-group" aria-labelledby="other-certificates">
                     <h3 class="Certificate-heading" id="other-certificates">// Other</h3>
                     <div class="Certificate-list">
-                        <!-- Duplikat .Certificate-card untuk menambah sertifikat lainnya. -->
                         <article class="Certificate-card">
                             <button class="Certificate-preview" type="button" aria-label="Perbesar sertifikat">
                                 <span><img src="assets/PMR.png" alt="Nama sertifikat"></span>
@@ -188,21 +229,74 @@
                                 </div>
                             </div>
                         </article>
+
+                        <article class="Certificate-card">
+                            <button class="Certificate-preview" type="button" aria-label="Perbesar sertifikat">
+                                <span><img src="assets/Siloam.png" alt="Nama sertifikat"></span>
+                            </button>
+                            <div class="Certificate-details">
+                                <h4>Siloam Hospitals PKL</h4>
+                                <div class="Certificate-meta">
+                                    <span class="Certificate-date">7 June 2025 - 16 August 2025</span>
+                                    <span class="Certificate-verified"><span aria-hidden="true">&#10003;</span> Verified</span>
+                                </div>
+                            </div>
+                        </article>
                     </div>
                 </section>
             </div>
             <div class="About-panel" id="panel-Education" role="tabpanel" hidden>
-                <div class="Education-list">
-                    <article class="Education-card">
-                        <button class="Education-preview" type="button" aria-label="Perbesar foto education">
-                            <span>Education photo</span>
-                        </button>
+                <div class="Education-timeline">
+                    <article class="Education-entry">
+                        <span class="Education-marker" aria-hidden="true"></span>
+
+                        <div class="Education-meta">
+                            <span class="Education-period">2019-2025</span>
+                            <span class="Education-type">Secondary Education</span>
+                        </div>
+
+                        <div class="Education-heading">
+                            <img class="Education-logo"
+                                 src="assets/Terangbangsa-logo.jpg"
+                                 alt="Logo Terang Bangsa">
+                            <div class="Education-heading-text">
+                                <h3>Junior/High Highschool - Social Studies</h3>
+                                <p>Terang Bangsa Christian School</p>
+                            </div>
+                        </div>
+
+                        <ul class="Education-details">
+                            <li>I Studied at TB from Junior to High School.</li>
+                            <li>Learnt various subjects including social studies, mathematics, and economics.</li>
+                        </ul>
+                    </article>
+                    <article class="Education-entry">
+                        <span class="Education-marker" aria-hidden="true"></span>
+
+                        <div class="Education-meta">
+                            <span class="Education-period">3rd Semester</span>
+                            <span class="Education-type">CURRENT EDUCATION</span>
+                        </div>
+
+                        <div class="Education-heading">
+                            <img class="Education-logo"
+                                 src="assets/Maranatha-logo.png"
+                                 alt="Logo Maranatha Christian University">
+                            <div class="Education-heading-text">
+                                <h3>Information Systems Student</h3>
+                                <p>Maranatha Christian University</p>
+                            </div>
+                        </div>
+
+                        <ul class="Education-details">
+                            <li>Currently studying in the 3rd semester.</li>
+                            <li>Learning programming, database management, and web development.</li>
+                        </ul>
                     </article>
                 </div>
             </div>
             <div class="About-panel" id="panel-organization" role="tabpanel" hidden>
                 <div class="Organization-list">
-                    <!-- Duplikat .Organization-card untuk menambahkan organisasi lain. -->
                     <article class="Project-card Organization-card">
                         <div class="Project-image">
                             <span><img src="assets/PMR.png" alt="Foto Nama Organisasi"></span>
@@ -218,7 +312,7 @@
         </div>
     </section>
 
-    <section class="Skills" id="skills">
+    <section class="Skills fade-up" id="skills">
         <h2>MY SKILLS</h2>
 
         <h3><strong style="color: #c1c1c1;">TECH</strong> STACK </h3>
@@ -230,7 +324,12 @@
                 <div class="Skill-info">
 
                     <div class="Skill-description">
-                        <h3>HTML / CSS / JavaScript</h3>
+                        <div class="Skill-name">
+                            <img class="Skill-logo" src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/html5/html5-original.svg" alt="HTML">
+                            <img class="Skill-logo" src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/css3/css3-original.svg" alt="CSS">
+                            <img class="Skill-logo" src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/javascript/javascript-original.svg" alt="JavaScript">
+                            <span>HTML / CSS / JavaScript</span>
+                        </div>
                         <p class="Skill-rank">ADVANCED</p>
                     </div>
                 </div>
@@ -248,9 +347,12 @@
                 <h3 class="Skill-category">// Backend</h3>
                 <hr class="Skill-divider">
 
-                <div class="Backend-skill">
+                <div class="Skill-items">
                     <div class="Skill-description">
-                        <h3>Java</h3>
+                        <div class="Skill-name">
+                            <img class="Skill-logo" src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/java/java-original.svg" alt="Java">
+                            <span>Java</span>
+                        </div>
                         <p class="Skill-rank">INTERMEDIATE</p>
                         <div class="Skill-progress intermediate" role="img" aria-label="Java: Intermediate">
                             <span></span><span></span><span></span>
@@ -258,7 +360,10 @@
                     </div>
 
                     <div class="Skill-description">
-                        <h3>Python</h3>
+                        <div class="Skill-name">
+                            <img class="Skill-logo" src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/python/python-original.svg" alt="Python">
+                            <span>Python</span>
+                        </div>
                         <p class="Skill-rank">INTERMEDIATE</p>
                         <div class="Skill-progress intermediate" role="img" aria-label="Python: Intermediate">
                             <span></span><span></span><span></span>
@@ -271,19 +376,32 @@
                 <h3 class="Skill-category">// Data, API, Workflow</h3>
                 <hr class="Skill-divider">
 
-                <div class="Skill-info">
+                <div class="Skill-items">
                     <div class="Skill-description">
-                        <h3>MySQL</h3>
+                        <div class="Skill-name">
+                            <img class="Skill-logo" src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/mysql/mysql-original.svg" alt="MySQL">
+                            <span>MySQL</span>
+                        </div>
                         <p class="Skill-rank">INTERMEDIATE</p>
+                        <div class="Skill-progress intermediate"
+                             role="img" 
+                             aria-label="MySQL: Intermediate">
+                            <span></span><span></span><span></span>
+                        </div>
                     </div>
-                </div>
 
-                <div class="Skill-progress intermediate"
-                     role="img"
-                     aria-label="MySQL: Intermediate">
-                    <span></span>
-                    <span></span>
-                    <span></span>
+                    <div class="Skill-description">
+                        <div class="Skill-name">
+                            <img class="Skill-logo" src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/github/github-original.svg" alt="GitHub">
+                            <span>GitHub</span>
+                        </div>
+                        <p class="Skill-rank">INTERMEDIATE</p>
+                        <div class="Skill-progress intermediate"
+                             role="img"
+                             aria-label="GitHub: Intermediate">
+                            <span></span><span></span><span></span>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
@@ -305,7 +423,7 @@
 
     </section>
 
-    <section class="Projects" id="projects">
+    <section class="Projects fade-up" id="projects">
         <h2>PROJECTS</h2>
 
         <div class="Projects-list">
@@ -326,7 +444,7 @@
         </div>
     </section>
 
-    <section class="Contact" id="contact">
+    <section class="Contact fade-up" id="contact">
         <h2>CONTACT</h2>
         <p>Feel free to connect with me through my social media.</p>
 

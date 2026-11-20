@@ -34,7 +34,10 @@ function finishLoading() {
     loadingFinished = true;
     clearInterval(progressTimer);
     updateProgress(100);
-    setTimeout(() => preloader.classList.add("is-hidden"), 280);
+    setTimeout(() => {
+    preloader.classList.add("is-hidden");
+    setTimeout(startFadeUp, 650);
+    }, 280);
 }
 
 window.addEventListener("load", finishLoading, { once: true });
@@ -129,3 +132,18 @@ if (achievementModal) {
     });
 }
 /* End of Achievement photo lightbox */
+
+function startFadeUp() {
+    const observer = new IntersectionObserver((entries, observer) => {
+        entries.forEach((entry) => {
+            if (entry.isIntersecting) {
+                entry.target.classList.add("is-visible");
+                observer.unobserve(entry.target);
+            }
+        });
+    }, { threshold: 0.15 });
+
+    document.querySelectorAll(".fade-up").forEach((section) => {
+        observer.observe(section);
+    });
+}
