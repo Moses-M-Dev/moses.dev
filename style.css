@@ -2375,8 +2375,16 @@ body.dark-theme .Skills.is-visible,
 body.dark-theme .Projects.is-visible,
 body.dark-theme .Contact.is-visible,
 body.dark-theme footer {
-    animation: dark-mode-fade-left 650ms ease both;
+.fade-up {
+    opacity: 10%;
+    transform: translateY(20px);
+    transition: opacity 0.8s ease, transform 0.8s ease;
 }
+
+.fade-up.is-visible {
+    opacity: 1;
+    transform: translateY(0);
+}}
 
 @keyframes dark-mode-fade-left {
     from {
